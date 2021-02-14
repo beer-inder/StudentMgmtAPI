@@ -28,6 +28,7 @@ namespace StudentMgmtAPI
         {
 
             services.AddControllers();
+            services.AddRazorPages();
             /*services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "StudentMgmtAPI", Version = "v1" });
@@ -53,6 +54,10 @@ namespace StudentMgmtAPI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapRazorPages();
             });
         }
     }
