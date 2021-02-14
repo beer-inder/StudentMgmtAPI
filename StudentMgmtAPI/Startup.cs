@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
+using StudentMgmtAPI.Data;
 
 namespace StudentMgmtAPI
 {
@@ -29,6 +31,9 @@ namespace StudentMgmtAPI
 
             services.AddControllers();
             services.AddRazorPages();
+
+            services.AddDbContext<StudentMgmtAPIContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("StudentMgmtAPIContext")));
             /*services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "StudentMgmtAPI", Version = "v1" });
